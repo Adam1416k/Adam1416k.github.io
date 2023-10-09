@@ -121,6 +121,10 @@
 	img:hover {
 		transform: scale(1.04);
 	}
+
+	#imageBar:hover {
+		transform: scale(1.04);
+	}
 	
 	#img-extern {
 		max-width: 35%;
