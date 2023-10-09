@@ -320,6 +320,10 @@
 	img:hover {
 		transform: scale(1.04);
 	}
+
+	#imageBar:hover {
+		transform: scale(1);
+	}
 	
 	#img-extern {
 		max-width: 35%;
@@ -514,6 +518,10 @@
 
 	img:hover {
 		transform: scale(1.04);
+	}
+
+	#imageBar:hover {
+		transform: scale(1);
 	}
 	
 	#img-extern {
