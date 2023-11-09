@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Applicationsportfolio </title>
+        <link rel="stylesheet" href="styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="header">
+            <h1 class="header1-text"> 
+                Adam's Portfolio
+            </h1>
+
+            <p class="description">
+                Välkommen till min portfolio där jag presenterar några av de projekt jag har arbetat med.
+                Denna hemsida är skapad av mig och dess syfte är att visa mina kunnskaper som systemvetare.
+                Projekten är skapade av mig och varje projekt har en demovideo som visar dess funktion.
+                Det går självklart att hämta koden för varje projekt genom att enkelt klicka på länkarna för respektive projekt.
+            </p>
+
+            <h2 class="header2-text"> Kort om mig </h2>
+
+            <p class="description"> Jag studerar på Stockholms Universitet på progammet Digitala Medier via instutionen för data och systemvetenskap.
+                En av mina främsta intressen inom data och systemvetenskap är att utveckla effektiva och smarta applikationer/system.
+                Genom att skapa denna hemsida kan jag smidigt och enkelt visa min kunnskap samt färdighet inom programmering.
+            </p>
+
+            <h2 class="header2-text"> Mina projekt: </h2>
+
+            <div class="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="menu">
+                <a href="#kontakt">Kontakt</a>
+                <a href="CV_Adam_Åström_2023.pdf" target="_blank">CV</a>
+                <a href="#kod">Källkod</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="box">                
+                <h3 class="header3-text">
+                    Pathfinder
+                </h3>
+                <p class="box-text">
+                    Pathfinder är ett projekt i Java som vars syfte är att låta användaren hitta den korstaste vägen mellan olika städer.
+                    Applikationen använder dijkstra's algorithm för att säkerhetställa att den kortaste vägen mellan två städer alltid går att hitta.
+                    Alla grafiska komponenter är skapade med javafx i min VS code IDE.
+                </p>
+                <div class="pathfinder-container">
+                    <video class="pathfinder-video" autoplay muted loop>
+                        <source src="Cities.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <a class="link-text" href="https://github.com/Adam1416k/Cities_java" target="_blank">
+                    <b>Länk till kod</b>
+                </a>
+            </div>
+                   
+            <div class="box">                
+                <h3 class="header3-text">
+                    Sökmotor för lokala filer
+                </h3>
+                <p class="box-text">
+                    Detta projekt är en mycket enkel sökmotor som söker bland filer på den lokala hårddisken.
+                    Syftet med sökmotorn är att kunna hitta den största filen i en specefik mapp.
+                    När användaren klickar på sök, går webbsidan igenom alla filer i alla mappar och visar den största filen med dess information.
+                    Koden består mestadels av php och javascript.
+                </p>
+                <div class="local-container">
+                    <video class="local-video" autoplay muted loop>
+                        <source src="Sökmotor_local.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <a class="link-text" href="https://github.com/Adam1416k/S-kmotor" target="_blank">
+                    <b>Länk till kod</b>
+                </a>
+            </div>
+
+            <div class="box">
+                <h3 class="header3-text">
+                    Sökmotor för internet
+                </h3>
+                <p class="box-text">
+                    Detta projekt är en enkel webb-skrapare som skrapar hemsidor på information. 
+                    Backend består mestadels av php och javascript.
+                    Webbsidan tar in en länk till en hemsida och ordet/texten som användaren vill söka efter.
+                    Webbsidan returnerar texten om den finns samt i vilket stycke/avsnitt där texten förekommer.
+                </p>
+                <div class="scraper-container">
+                    <video class="scraper-video" autoplay muted loop>
+                        <source src="Web_skrapare.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <a class="link-text" href="https://github.com/Adam1416k/Web_skrapare" target="_blank">
+                    <b>Länk till kod</b>
+                </a>
+            </div>
+
+            <div class="box">
+                <h3 class="header3-text">
+                    Användaregistrering
+                </h3>
+                <p class="box-text">
+                    Detta projekt är en enkel webbsida som hanterar nya användare.
+                    Backend består mestadels av python och lite javascript.
+                    Användaren kan skriva in sitt namn, mail och ett lösenord och registrera detta.
+                    Användaren registreras i en enkel databas.
+                    Webbsidan kollar alltid om en användare redan är registrerad eller inte.
+                </p>
+                <div class="reg-container">
+                    <video class="reg-video" autoplay muted loop>
+                        <source src="User_reg.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <a class="link-text" href="https://github.com/Adam1416k/User_registration" target="_blank">
+                    <b>Länk till kod</b>
+                </a>
+            </div>
+
+            <div class="box">
+                <h3 class="header3-text">
+                    E-handelssida
+                </h3>
+            </div>
+
+            <div class="box">
+                <h3 class="header3-text">
+                    ...
+                </h3>
+            </div>
+        </div>
+    </body>
+    <script src="script.js"></script>
+</html>
