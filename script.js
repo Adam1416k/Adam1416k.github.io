@@ -20,9 +20,6 @@ window.addEventListener('scroll', function() {
 
 document.querySelector('.menu-button').addEventListener('click', function() {
     var menu = document.querySelector('.menu');
-    if (menu.classList.contains('active')) {
-        menu.classList.remove('active');
-    } else {
-        menu.classList.add('active');
-    }
+    this.classList.toggle('active'); // växla klassen för knappen
+    menu.classList.toggle('active');
 });
