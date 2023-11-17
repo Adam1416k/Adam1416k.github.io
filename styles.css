@@ -111,7 +111,7 @@
     .box {
         position: relative;
         flex-basis: 100%; /* Bredd minus halva mellanrummet */
-        height: 600px;
+        height: 650px;
         background-color: #d0d0d0a8;
         border-radius: 10px; /* Avrundade hörn */
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.176); /* Skugga med transparens */
