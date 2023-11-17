@@ -1,9 +1,553 @@
 @media only screen and (max-width: 600px) {
+    body {
+        margin: 0;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 200;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: linear-gradient(to bottom, rgb(255, 255, 255), #a5d3e6);
+    }
+    
+    .header {
+        width: 100%;
+        height: 1150px;
+        background: linear-gradient(180deg, #a5d3e6, rgba(241, 241, 241, 1));
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 95%; /* Du kan justera detta värde för att ändra containerns bredd */
+        gap: 10px; /* Avstånd mellan boxarna */
+    }
+    
+    .pathfinder-container {
+        position: relative;
+        width: 440px; /* Fast bredd, exempelvis 640px */
+        height: 500px; /* Fast höjd, exempelvis 360px */
+        overflow: hidden;
+        border-radius: 10px;
+        margin: auto;
+    }
+    
+    .pathfinder-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 440px; /* Måste matcha .video-container bredden */
+        height: 500px; /* Måste matcha .video-container höjden */
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
+    
+    .local-container {
+        position: relative;
+        width: 450px; /* Fast bredd, exempelvis 640px */
+        height: 350px; /* Fast höjd, exempelvis 360px */
+        overflow: hidden;
+        border-radius: 10px;
+        margin: auto;
+    }
+    
+    .local-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 450px; /* Måste matcha .video-container bredden */
+        height: 350px; /* Måste matcha .video-container höjden */
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
 
+    .scraper-container {
+        position: relative;
+        width: 440px; /* Fast bredd, exempelvis 640px */
+        height: 400px; /* Fast höjd, exempelvis 360px */
+        overflow: hidden;
+        border-radius: 10px;
+        margin: auto;
+    }
+    
+    .scraper-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 440px; /* Måste matcha .video-container bredden */
+        height: 400px; /* Måste matcha .video-container höjden */
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .reg-container {
+        position: relative;
+        width: 440px; /* Fast bredd, exempelvis 640px */
+        height: 400px; /* Fast höjd, exempelvis 360px */
+        overflow: hidden;
+        border-radius: 10px;
+        margin: auto;
+    }
+    
+    .reg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 440px; /* Måste matcha .video-container bredden */
+        height: 400px; /* Måste matcha .video-container höjden */
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
+    
+    .box {
+        position: relative;
+        flex-basis: 100%; /* Bredd minus halva mellanrummet */
+        height: 900px;
+        background-color: #d0d0d0a8;
+        border-radius: 10px; /* Avrundade hörn */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.176); /* Skugga med transparens */
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s, transform 0.6s;
+        will-change: opacity, transform;
+        display: flex;        /* Lägg till detta */
+        flex-direction: column; /* Lägg till detta */
+        justify-content: center; /* Lägg till detta */
+        align-items: center;
+    }
+
+    .footer {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(180deg, #a5d3e6, rgba(241, 241, 241, 1));
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header1-text {
+        font-size: 30px;
+        text-align: center;
+        letter-spacing: 10px;
+        color: #131313;
+    }
+    
+    .header2-text {
+        font-size: 20px;
+        text-align: center;
+        letter-spacing: 5px;
+        color: #252525;
+    }
+    
+    .header3-text {
+        font-size: 20px;
+        text-align: center;
+        letter-spacing: 5px;
+        color: #252525;
+        font-weight: bold;
+    }
+    
+    .description {
+        font-size: 20px; 
+        text-align: center;
+        margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
+        color: #444; /* lite mörkare än svart för en mjukare känsla */
+        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+    
+    .box-text {
+        font-size: 20px; 
+        text-align: center;
+        margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
+        color: #252525; /* lite mörkare än svart för en mjukare känsla */
+        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+
+    .footer-text {
+        font-size: 20px; 
+        text-align: center;
+        margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
+        color: #252525; /* lite mörkare än svart för en mjukare känsla */
+        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+    
+    .link-text {
+        font-size: 15px; 
+        text-align: center;
+        margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
+        color: #252525; /* lite mörkare än svart för en mjukare känsla */
+        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+
+    .menu-button.active span:nth-child(1), 
+    .menu-button.active span:nth-child(3) {
+        position: absolute;
+        top: 50%;
+        width: 100%; /* Se till att strecken är full bredd */
+        transform: rotate(45deg); /* Justera rotationen om nödvändigt */
+        transform-origin: center; /* Rotera från mitten */
+    }
+
+    .menu-button.active span:nth-child(2) {
+        opacity: 0; /* Dölj det mellersta strecket */
+    }
+
+    .menu-button.active span:nth-child(3) {
+        transform: rotate(-45deg); /* Rotera åt andra hållet för det andra strecket */
+    }
+
+    .menu-button {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 35px;
+        height: 22px;
+        display: inline-block;
+        cursor: pointer;
+        margin-top: 10px;
+        z-index: 99;
+    }
+    
+    .menu-button span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: #000;
+        border-radius: 2px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+    }
+    
+    .menu-button span:nth-child(1) {
+        top: 0;
+    }
+    
+    .menu-button span:nth-child(2) {
+        top: 9px;
+    }
+    
+    .menu-button span:nth-child(3) {
+        top: 18px;
+    }    
+
+    .menu {
+        position: fixed;
+        top: 60px;
+        left: -320px;
+        width: 60px;
+        height: 120px;
+        background-color: #a5d3e6;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        transition: left 0.3s ease-in-out;
+        z-index: 99;
+        padding: 20px;
+    }
+
+    .menu a {
+        display: block;
+        margin-bottom: 15px;
+        text-decoration: none;
+        color: #252525;
+    }
+
+    .menu.active {
+        left: 0;
+    }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1050px) {
+    body {
+        margin: 0;
+        font-family: 'Oswald', sans-serif;
+        font-weight: 200;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: linear-gradient(to bottom, rgb(255, 255, 255), #a5d3e6);
+    }
     
+    .header {
+        width: 100%;
+        height: 1300px;
+        background: linear-gradient(180deg, #a5d3e6, rgba(241, 241, 241, 1));
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 95%; /* Du kan justera detta värde för att ändra containerns bredd */
+        gap: 10px; /* Avstånd mellan boxarna */
+    }
+    
+    .pathfinder-container {
+        position: relative;
+        width: 440px; /* Fast bredd, exempelvis 640px */
+        height: 500px; /* Fast höjd, exempelvis 360px */
+        overflow: hidden;
+        border-radius: 10px;
+        margin: auto;
+    }
+    
+    .pathfinder-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 440px; /* Måste matcha .video-container bredden */
+        height: 500px; /* Måste matcha .video-container höjden */
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
+    
+    .local-container {
+        position: relative;
+        width: 450px; /* Fast bredd, exempelvis 640px */
+        height: 350px; /* Fast höjd, exempelvis 360px */
+        overflow: hidden;
+        border-radius: 10px;
+        margin: auto;
+    }
+    
+    .local-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 450px; /* Måste matcha .video-container bredden */
+        height: 350px; /* Måste matcha .video-container höjden */
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .scraper-container {
+        position: relative;
+        width: 440px; /* Fast bredd, exempelvis 640px */
+        height: 400px; /* Fast höjd, exempelvis 360px */
+        overflow: hidden;
+        border-radius: 10px;
+        margin: auto;
+    }
+    
+    .scraper-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 440px; /* Måste matcha .video-container bredden */
+        height: 400px; /* Måste matcha .video-container höjden */
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .reg-container {
+        position: relative;
+        width: 440px; /* Fast bredd, exempelvis 640px */
+        height: 400px; /* Fast höjd, exempelvis 360px */
+        overflow: hidden;
+        border-radius: 10px;
+        margin: auto;
+    }
+    
+    .reg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 440px; /* Måste matcha .video-container bredden */
+        height: 400px; /* Måste matcha .video-container höjden */
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
+    
+    .box {
+        position: relative;
+        flex-basis: 100%; /* Bredd minus halva mellanrummet */
+        height: 900px;
+        background-color: #d0d0d0a8;
+        border-radius: 10px; /* Avrundade hörn */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.176); /* Skugga med transparens */
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.6s, transform 0.6s;
+        will-change: opacity, transform;
+        display: flex;        /* Lägg till detta */
+        flex-direction: column; /* Lägg till detta */
+        justify-content: center; /* Lägg till detta */
+        align-items: center;
+    }
+
+    .footer {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(180deg, #a5d3e6, rgba(241, 241, 241, 1));
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header1-text {
+        font-size: 45px;
+        text-align: center;
+        letter-spacing: 15px;
+        color: #131313;
+    }
+    
+    .header2-text {
+        font-size: 25px;
+        text-align: center;
+        letter-spacing: 5px;
+        color: #252525;
+    }
+    
+    .header3-text {
+        font-size: 25px;
+        text-align: center;
+        letter-spacing: 5px;
+        color: #252525;
+        font-weight: bold;
+    }
+    
+    .description {
+        font-size: 23px; 
+        text-align: center;
+        margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
+        color: #444; /* lite mörkare än svart för en mjukare känsla */
+        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+    
+    .box-text {
+        font-size: 21px; 
+        text-align: center;
+        margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
+        color: #252525; /* lite mörkare än svart för en mjukare känsla */
+        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+
+    .footer-text {
+        font-size: 20px; 
+        text-align: center;
+        margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
+        color: #252525; /* lite mörkare än svart för en mjukare känsla */
+        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+    
+    .link-text {
+        font-size: 20px; 
+        text-align: center;
+        margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
+        color: #252525; /* lite mörkare än svart för en mjukare känsla */
+        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+
+    .menu-button.active span:nth-child(1), 
+    .menu-button.active span:nth-child(3) {
+        position: absolute;
+        top: 50%;
+        width: 100%; /* Se till att strecken är full bredd */
+        transform: rotate(45deg); /* Justera rotationen om nödvändigt */
+        transform-origin: center; /* Rotera från mitten */
+    }
+
+    .menu-button.active span:nth-child(2) {
+        opacity: 0; /* Dölj det mellersta strecket */
+    }
+
+    .menu-button.active span:nth-child(3) {
+        transform: rotate(-45deg); /* Rotera åt andra hållet för det andra strecket */
+    }
+
+    .menu-button {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 35px;
+        height: 22px;
+        display: inline-block;
+        cursor: pointer;
+        margin-top: 10px;
+        z-index: 99;
+    }
+    
+    .menu-button span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: #000;
+        border-radius: 2px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+    }
+    
+    .menu-button span:nth-child(1) {
+        top: 0;
+    }
+    
+    .menu-button span:nth-child(2) {
+        top: 9px;
+    }
+    
+    .menu-button span:nth-child(3) {
+        top: 18px;
+    }    
+
+    .menu {
+        position: fixed;
+        top: 60px;
+        left: -320px;
+        width: 60px;
+        height: 120px;
+        background-color: #a5d3e6;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        transition: left 0.3s ease-in-out;
+        z-index: 99;
+        padding: 20px;
+    }
+
+    .menu a {
+        display: block;
+        margin-bottom: 15px;
+        text-decoration: none;
+        color: #252525;
+    }
+
+    .menu.active {
+        left: 0;
+    }
 }
 
 @media only screen and (min-width: 1051px) and (max-width: 1640px) {
@@ -19,12 +563,12 @@
     
     .header {
         width: 100%;
-        height: 800px;
+        height: 1300px;
         background: linear-gradient(180deg, #a5d3e6, rgba(241, 241, 241, 1));
         margin-bottom: 10px;
-        display: flex;        /* Lägg till detta */
-        flex-direction: column; /* Lägg till detta */
-        justify-content: center; /* Lägg till detta */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
     
@@ -34,6 +578,17 @@
         justify-content: space-between;
         width: 95%; /* Du kan justera detta värde för att ändra containerns bredd */
         gap: 10px; /* Avstånd mellan boxarna */
+    }
+
+    .footer {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(180deg, #a5d3e6, rgba(241, 241, 241, 1));
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
     .pathfinder-container {
@@ -132,16 +687,16 @@
         justify-content: center; /* Lägg till detta */
         align-items: center;
     }
-    
+
     .header1-text {
-        font-size: 60px;
+        font-size: 70px;
         text-align: center;
-        letter-spacing: 10px;
+        letter-spacing: 15px;
         color: #131313;
     }
     
     .header2-text {
-        font-size: 40px;
+        font-size: 35px;
         text-align: center;
         letter-spacing: 5px;
         color: #252525;
@@ -165,6 +720,15 @@
     }
     
     .box-text {
+        font-size: 21px; 
+        text-align: center;
+        margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
+        color: #252525; /* lite mörkare än svart för en mjukare känsla */
+        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+
+    .footer-text {
         font-size: 20px; 
         text-align: center;
         margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
@@ -174,12 +738,29 @@
     }
     
     .link-text {
-        font-size: 18px; 
+        font-size: 20px; 
         text-align: center;
         margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
         color: #252525; /* lite mörkare än svart för en mjukare känsla */
         max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
         line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+
+    .menu-button.active span:nth-child(1), 
+    .menu-button.active span:nth-child(3) {
+        position: absolute;
+        top: 50%;
+        width: 100%; /* Se till att strecken är full bredd */
+        transform: rotate(45deg); /* Justera rotationen om nödvändigt */
+        transform-origin: center; /* Rotera från mitten */
+    }
+
+    .menu-button.active span:nth-child(2) {
+        opacity: 0; /* Dölj det mellersta strecket */
+    }
+
+    .menu-button.active span:nth-child(3) {
+        transform: rotate(-45deg); /* Rotera åt andra hållet för det andra strecket */
     }
 
     .menu-button {
@@ -204,7 +785,7 @@
         opacity: 1;
         left: 0;
         transform: rotate(0deg);
-        transition: .25s ease-in-out;
+        transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
     }
     
     .menu-button span:nth-child(1) {
@@ -243,7 +824,6 @@
     .menu.active {
         left: 0;
     }
-
 }
 
 @media only screen and (min-width: 1641px) {
@@ -259,12 +839,12 @@
     
     .header {
         width: 100%;
-        height: 800px;
+        height: 1400px;
         background: linear-gradient(180deg, #a5d3e6, rgba(241, 241, 241, 1));
         margin-bottom: 10px;
-        display: flex;        /* Lägg till detta */
-        flex-direction: column; /* Lägg till detta */
-        justify-content: center; /* Lägg till detta */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
     
@@ -272,14 +852,25 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        width: 95%; /* Du kan justera detta värde för att ändra containerns bredd */
+        width: 1500px; /* Du kan justera detta värde för att ändra containerns bredd */
         gap: 10px; /* Avstånd mellan boxarna */
+    }
+
+    .footer {
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(180deg, #a5d3e6, rgba(241, 241, 241, 1));
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
     .pathfinder-container {
         position: relative;
-        width: 530px; /* Fast bredd, exempelvis 640px */
-        height: 600px; /* Fast höjd, exempelvis 360px */
+        width: 440px; /* Fast bredd, exempelvis 640px */
+        height: 500px; /* Fast höjd, exempelvis 360px */
         overflow: hidden;
         border-radius: 10px;
         margin: auto;
@@ -289,8 +880,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 530px; /* Måste matcha .video-container bredden */
-        height: 600px; /* Måste matcha .video-container höjden */
+        width: 440px; /* Måste matcha .video-container bredden */
+        height: 500px; /* Måste matcha .video-container höjden */
         transform: translate(-50%, -50%);
         object-fit: cover;
         z-index: -1;
@@ -298,8 +889,8 @@
     
     .local-container {
         position: relative;
-        width: 700px; /* Fast bredd, exempelvis 640px */
-        height: 600px; /* Fast höjd, exempelvis 360px */
+        width: 450px; /* Fast bredd, exempelvis 640px */
+        height: 350px; /* Fast höjd, exempelvis 360px */
         overflow: hidden;
         border-radius: 10px;
         margin: auto;
@@ -309,8 +900,48 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 700px; /* Måste matcha .video-container bredden */
-        height: 600px; /* Måste matcha .video-container höjden */
+        width: 450px; /* Måste matcha .video-container bredden */
+        height: 350px; /* Måste matcha .video-container höjden */
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .scraper-container {
+        position: relative;
+        width: 440px; /* Fast bredd, exempelvis 640px */
+        height: 400px; /* Fast höjd, exempelvis 360px */
+        overflow: hidden;
+        border-radius: 10px;
+        margin: auto;
+    }
+    
+    .scraper-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 440px; /* Måste matcha .video-container bredden */
+        height: 400px; /* Måste matcha .video-container höjden */
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .reg-container {
+        position: relative;
+        width: 440px; /* Fast bredd, exempelvis 640px */
+        height: 400px; /* Fast höjd, exempelvis 360px */
+        overflow: hidden;
+        border-radius: 10px;
+        margin: auto;
+    }
+    
+    .reg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 440px; /* Måste matcha .video-container bredden */
+        height: 400px; /* Måste matcha .video-container höjden */
         transform: translate(-50%, -50%);
         object-fit: cover;
         z-index: -1;
@@ -332,11 +963,11 @@
         justify-content: center; /* Lägg till detta */
         align-items: center;
     }
-    
+
     .header1-text {
-        font-size: 80px;
+        font-size: 90px;
         text-align: center;
-        letter-spacing: 10px;
+        letter-spacing: 15px;
         color: #131313;
     }
     
@@ -360,12 +991,21 @@
         text-align: center;
         margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
         color: #444; /* lite mörkare än svart för en mjukare känsla */
-        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        max-width: 1200px; /* begränsar bredden på texten för bättre läsbarhet */
         line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
     }
     
     .box-text {
-        font-size: 25px; 
+        font-size: 28px; 
+        text-align: center;
+        margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
+        color: #252525; /* lite mörkare än svart för en mjukare känsla */
+        max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
+        line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+
+    .footer-text {
+        font-size: 20px; 
         text-align: center;
         margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
         color: #252525; /* lite mörkare än svart för en mjukare känsla */
@@ -374,11 +1014,90 @@
     }
     
     .link-text {
-        font-size: 18px; 
+        font-size: 20px; 
         text-align: center;
         margin: 20px 0; /* ger lite utrymme ovanför och nedanför texten */
         color: #252525; /* lite mörkare än svart för en mjukare känsla */
         max-width: 80%; /* begränsar bredden på texten för bättre läsbarhet */
         line-height: 1.5; /* ger lite mer utrymme mellan raderna för bättre läsbarhet */
+    }
+
+    .menu-button.active span:nth-child(1), 
+    .menu-button.active span:nth-child(3) {
+        position: absolute;
+        top: 50%;
+        width: 100%; /* Se till att strecken är full bredd */
+        transform: rotate(45deg); /* Justera rotationen om nödvändigt */
+        transform-origin: center; /* Rotera från mitten */
+    }
+
+    .menu-button.active span:nth-child(2) {
+        opacity: 0; /* Dölj det mellersta strecket */
+    }
+
+    .menu-button.active span:nth-child(3) {
+        transform: rotate(-45deg); /* Rotera åt andra hållet för det andra strecket */
+    }
+
+    .menu-button {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 35px;
+        height: 22px;
+        display: inline-block;
+        cursor: pointer;
+        margin-top: 10px;
+        z-index: 99;
+    }
+    
+    .menu-button span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: #000;
+        border-radius: 2px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+    }
+    
+    .menu-button span:nth-child(1) {
+        top: 0;
+    }
+    
+    .menu-button span:nth-child(2) {
+        top: 9px;
+    }
+    
+    .menu-button span:nth-child(3) {
+        top: 18px;
+    }    
+
+    .menu {
+        position: fixed;
+        top: 60px;
+        left: -320px;
+        width: 60px;
+        height: 120px;
+        background-color: #a5d3e6;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        transition: left 0.3s ease-in-out;
+        z-index: 99;
+        padding: 20px;
+    }
+
+    .menu a {
+        display: block;
+        margin-bottom: 15px;
+        text-decoration: none;
+        color: #252525;
+    }
+
+    .menu.active {
+        left: 0;
     }
 }
