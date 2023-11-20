@@ -23,3 +23,20 @@ document.querySelector('.menu-button').addEventListener('click', function() {
     this.classList.toggle('active'); // växla klassen för knappen
     menu.classList.toggle('active');
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    var videos = document.querySelectorAll('video');
+    videos.forEach(function(video) {
+        var loadingSymbol = video.parentElement.querySelector('.loading-symbol');
+        loadingSymbol.style.display = 'block'; // Show loading symbol initially
+
+        video.oncanplaythrough = function() {
+            loadingSymbol.style.display = 'none'; // Hide loading symbol when video can play through
+        };
+
+        video.onerror = function() {
+            // Handle error if video fails to load
+            loadingSymbol.innerHTML = 'Error loading video';
+        };
+    });
+});
