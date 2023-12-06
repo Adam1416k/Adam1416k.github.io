@@ -109,10 +109,6 @@
     }
 
     .loading-symbol {
-        position: absolute; /* Position relative to the .box */
-        top: 45%; /* Center vertically */
-        left: 44%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Adjust the exact center position */
         border: 4px solid rgba(0, 0, 0, 0.1);
         border-radius: 50%;
         border-top: 4px solid #3498db;
@@ -269,7 +265,7 @@
         position: fixed;
         top: 60px;
         left: -320px;
-        width: 60px;
+        width: 70px;
         height: 120px;
         background-color: #a5d3e6;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
@@ -402,10 +398,6 @@
     }
 
     .loading-symbol {
-        position: absolute; /* Position relative to the .box */
-        top: 45%; /* Center vertically */
-        left: 45%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Adjust the exact center position */
         border: 4px solid rgba(0, 0, 0, 0.1);
         border-radius: 50%;
         border-top: 4px solid #3498db;
@@ -562,7 +554,7 @@
         position: fixed;
         top: 60px;
         left: -320px;
-        width: 60px;
+        width: 70px;
         height: 120px;
         background-color: #a5d3e6;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
@@ -705,10 +697,6 @@
     }
 
     .loading-symbol {
-        position: absolute; /* Position relative to the .box */
-        top: 45%; /* Center vertically */
-        left: 45%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Adjust the exact center position */
         border: 4px solid rgba(0, 0, 0, 0.1);
         border-radius: 50%;
         border-top: 4px solid #3498db;
@@ -855,7 +843,7 @@
         position: fixed;
         top: 60px;
         left: -320px;
-        width: 60px;
+        width: 70px;
         height: 120px;
         background-color: #a5d3e6;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
@@ -998,10 +986,6 @@
     }
 
     .loading-symbol {
-        position: absolute; /* Position relative to the .box */
-        top: 45%; /* Center vertically */
-        left: 45%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Adjust the exact center position */
         border: 4px solid rgba(0, 0, 0, 0.1);
         border-radius: 50%;
         border-top: 4px solid #3498db;
@@ -1013,7 +997,7 @@
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
-    } 
+    }    
     
     .box {
         position: relative;
@@ -1148,7 +1132,7 @@
         position: fixed;
         top: 60px;
         left: -320px;
-        width: 60px;
+        width: 70px;
         height: 120px;
         background-color: #a5d3e6;
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
