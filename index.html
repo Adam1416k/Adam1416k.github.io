@@ -1,157 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Portfolio </title>
-        <link rel="stylesheet" href="styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div class="header">
-            <h1 class="header1-text"> 
-                Adam's Portfolio
-            </h1>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adam Åström — Portfolio</title>
+  <meta name="description" content="Portfolio of Adam Åström — Master's student in Software Engineering of Distributed Systems at KTH. Projects, experience, and skills in distributed systems, software development, and customer experience." />
+  <meta name="author" content="Adam Åström" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Adam Åström — Portfolio" />
+  <meta property="og:description" content="Projects, experience and skills in distributed systems, software development, and customer experience." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://applicationsportfolio.com" />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root{
+    --bg: #0b1220;
+    --panel: #0f172a;
+    --muted: #94a3b8;
+    --text: #e2e8f0;
+    --accent: #38bdf8;
+    --accent-2: #22d3ee;
+    --ring: rgba(56,189,248,.35);
+    }
+    @media (prefers-color-scheme: light){
+    :root{ --bg:#ffffff; --panel:#f8fafc; --text:#0f172a; --muted:#475569; --accent:#0284c7; --accent-2:#0891b2; --ring: rgba(2,132,199,.25);} 
+    .glass{ backdrop-filter:saturate(180%) blur(8px); background:rgba(255,255,255,.75);}
+    }
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+    margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--text); background:var(--bg);
+    line-height:1.6; 
+    }
+    a{ color:inherit; text-decoration:none }
+    .container{ width:min(1100px, 92%); margin-inline:auto }
+    .nav{ position:sticky; top:0; z-index:50; border-bottom:1px solid rgba(148,163,184,.12); background: linear-gradient(to bottom, rgba(11,18,32,.9), rgba(11,18,32,.65)); backdrop-filter: blur(6px); }
+    .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding:.85rem 0 }
+    .brand{ display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:.3px }
+    .brand .dot{ width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow:0 0 0 6px var(--ring) }
+    .nav a{ opacity:.9 }
+    .nav-links{ display:flex; gap:1rem; align-items:center }
+    .nav .cta{ padding:.55rem .9rem; border-radius:12px; border:1px solid rgba(148,163,184,.18); transition:.2s ease; }
+    .nav .cta:hover{ transform:translateY(-1px); box-shadow:0 10px 18px -12px black, inset 0 0 0 1px rgba(255,255,255,.06) }
+    .hero{ padding:6.5rem 0 4.5rem; position:relative }
+    .badge{ display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .6rem; border-radius:999px; border:1px solid rgba(148,163,184,.2); color:var(--muted); font-size:.85rem }
+    .badge svg{ width:16px; height:16px }
+    h1{ font-size:clamp(1.8rem, 3.2vw + .8rem, 3.4rem); line-height:1.15; margin:.8rem 0 1rem; letter-spacing:.2px }
+    .lead{ font-size: clamp(1rem, .7vw + .85rem, 1.2rem); color:var(--muted); max-width:62ch }
+    .actions{ display:flex; gap:.8rem; margin-top:1.4rem; flex-wrap:wrap }
+    .btn{ display:inline-flex; align-items:center; gap:.6rem; padding:.8rem 1rem; border-radius:14px; border:1px solid rgba(148,163,184,.26); font-weight:600; transition: .22s ease; }
+    .btn.primary{ background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#002233; border:none }
+    .btn:hover{ transform:translateY(-1px) scale(1.01) }
+    section{
+    padding:4rem 0;
+    border-top:1px solid rgba(148,163,184,.12);
+    position:relative;
+    overflow:hidden;
+    }
+    section::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:140%;
+    height:100%;
+    pointer-events:none;
+    z-index:-1;
+    background: radial-gradient(circle at 50% 20%, rgba(56,189,248,.14), transparent 70%),
+    radial-gradient(circle at 70% 80%, rgba(34,211,238,.1), transparent 70%);
+    }
+    .section-title{ font-size:1rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:1.25rem }
+    .panel{ background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(148,163,184,.16); border-radius:18px; padding:1.25rem; }
+    .grid{ display:grid; gap:1rem }
+    @media (min-width:720px){ .grid-2{ grid-template-columns:1fr 1fr } }
+    @media (min-width:980px){ .grid-3{ grid-template-columns:repeat(3, 1fr) } }
+    .timeline{ position:relative; padding-left:1rem }
+    .timeline:before{ content:""; position:absolute; left:6px; top:.4rem; bottom:.4rem; width:2px; background:linear-gradient(var(--accent), transparent) }
+    .t{ position:relative; margin:1rem 0 1.2rem 0; padding-left:1.2rem }
+    .t:before{ content:""; position:absolute; left:-2px; top:.35rem; width:10px; height:10px; border-radius:999px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow:0 0 0 6px var(--ring) }
+    .t h3{ margin:.1rem 0 .15rem; font-size:1.05rem }
+    .t .meta{ color:var(--muted); font-size:.92rem }
+    .chips{ display:flex; flex-wrap:wrap; gap:.5rem }
+    .chip{ padding:.45rem .65rem; border-radius:999px; border:1px solid rgba(148,163,184,.24); font-size:.9rem; background:rgba(148,163,184,.06) }
+    .card{ display:flex; flex-direction:column; gap:.75rem; padding:1.1rem; border:1px solid rgba(148,163,184,.16); border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); transition:.2s ease }
+    .card:hover{ transform:translateY(-2px); box-shadow:0 8px 22px -16px black }
+    .card .thumb{ aspect-ratio: 16/9; border-radius:12px; background:#0b132a; display:grid; place-items:center; border:1px solid rgba(148,163,184,.16) }
+    .card .thumb svg{ width:44px; height:44px; opacity:.7 }
+    .card .links{ display:flex; gap:.6rem; flex-wrap:wrap }
+    .small{ font-size:.92rem; color:var(--muted) }
+    footer{ padding:3rem 0; border-top:1px solid rgba(148,163,184,.12); color:var(--muted) }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0 }
+    .flex{ display:flex; gap:1rem; align-items:center }
+    .grow{ flex:1 }
+  </style>
+  <script>
+    addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => { const t = document.querySelector(a.getAttribute('href')); if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); } });
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Adam Åström",
+    "url": "https://applicationsportfolio.com",
+    "sameAs": [
+      "https://github.com/Adam1416k",
+      "https://www.linkedin.com/"
+    ],
+    "alumniOf": [
+      {"@type":"CollegeOrUniversity","name":"KTH Royal Institute of Technology","sameAs":"https://www.kth.se"},
+      {"@type":"CollegeOrUniversity","name":"Stockholm University","sameAs":"https://www.su.se"}
+    ],
+    "knowsAbout": ["Distributed Systems","Software Development","Software Testing","Customer Experience","Machine Learning","Git","React","Python","Java"],
+    "jobTitle": "Software Engineer / Master's student"
+  }
+  </script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Adam Åström</span>
+      </a>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="cta">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-            <p class="description">
-                Welcome to my portfolio! Here, you'll find a showcase of the projects I've worked on, each reflecting my skills as a systems scientist.
-                This website is designed and built by me to highlight my expertise and creativity. 
-                Each project includes a demo video to demonstrate its functionality, giving you a firsthand look at how it works.
-                If you're curious about the implementation details, you can easily access the source code for each project by clicking on the corresponding links.        
-                Feel free to explore and see what I’ve been working on!
-            </p>
+  <header id="top" class="hero container">
+    <span class="badge" aria-label="Current focus">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      Master's in Software Engineering of Distributed Systems @ KTH
+    </span>
+    <h1>Working with scalable software and memorable customer experiences.</h1>
+    <p class="lead">
+      I'm pursuing a Master's in <strong>Software Engineering of Distributed Systems</strong> at KTH while working part‑time as a <strong>Client Software Support Associate</strong> at Relesys. I combine technical depth with customer empathy to deliver reliable, user‑friendly solutions.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">See my work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </header>
 
-            <h2 class="header2-text"> About Me </h2>
-
-            <p class="description"> 
-                I am currently pursuing a Master's in Distributed Systems at KTH, building on my Bachelor's in Computer Science from Stockholm University. 
-                My passion lies in developing efficient and intelligent applications and systems. 
-                This website is designed to showcase my programming expertise and highlight my skills in creating impactful solutions.
-            </p>
-
-            <h2 class="header2-text"> My Skills </h2>
-
-            <p class="description">
-                With a solid foundation in computer and systems science, acquired through both rigorous academic training and hands-on personal projects, I have developed advanced expertise in Java programming and web development. 
-                My experience extends to designing, building, and maintaining distributed systems, where I leverage my knowledge to create scalable, reliable, and high-performance solutions.
-                I am highly skilled in version control and team collaboration using tools like GitHub, ensuring seamless integration and efficient workflow within development teams. 
-                My background in distributed systems enables me to design architectures that maximize availability, fault tolerance, and scalability—key requirements for modern, cloud-based applications.
-                I am also dedicated to optimizing user experiences across both web and mobile platforms, focusing on performance and responsiveness. 
-                My approach to software development is grounded in best practices for testing and debugging, guaranteeing robust and maintainable code. 
-                With a user-centric mindset and a commitment to high-quality development, I consistently deliver impactful, dynamic solutions tailored to evolving user needs.
-            </p>
-
-            <h2 class="header2-text"> My Projects: </h2>
-
-            <div class="menu-button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
-            <div class="menu">
-                <a href="CV_Adam_Åström_2024.pdf" target="_blank">CV</a>
-                <a href="https://www.linkedin.com/in/adam-%C3%A5str%C3%B6m-105a28246/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/Adam1416k/Adam1416k.github.io" target="_blank">Source Code</a>
-            </div>
+  <section id="about">
+    <div class="container grid grid-2">
+      <div class="panel">
+        <h2 class="section-title">About</h2>
+        <p>
+          I am a student at KTH, studying for a Master's in <strong>Software Engineering of Distributed Systems</strong>. In parallel with my studies, I work part‑time as a <strong>Client Software Support Associate</strong> at Relesys, where I apply my technical skills and help customers solve complex problems.
+        </p>
+        <p>
+          I also hold a Bachelor's degree in <strong>Digital Media</strong> from Stockholm University with a strong foundation in <strong>computer and systems sciences</strong>. My passion is building innovative and scalable software solutions paired with memorable customer experiences.
+        </p>
+        <p>
+          Beyond my technical background, I have experience in bartending and customer service, which has strengthened my ability to handle customer interactions professionally and effectively.
+        </p>
+      </div>
+      <div class="panel">
+        <h2 class="section-title">At a glance</h2>
+        <ul>
+          <li><strong>Now:</strong> M.Sc. in Software Engineering of Distributed Systems at <em>KTH</em></li>
+          <li><strong>Role:</strong> Client Software Support Associate at <em>Relesys</em></li>
+          <li><strong>Previous:</strong> B.Sc. in Digital Media & Computer/System Sciences at <em>Stockholm University</em></li>
+          <li><strong>Focus:</strong> Innovative, scalable software + first‑class user experience</li>
+        </ul>
+        <div class="chips" style="margin-top:.8rem">
+          <span class="chip">Customer Experience</span>
+          <span class="chip">Distributed Systems</span>
+          <span class="chip">Software Development</span>
+          <span class="chip">Software Testing</span>
+          <span class="chip">Machine Learning</span>
         </div>
-        <div class="container">
-            <div class="box">                
-                <h3 class="header3-text">
-                    Pathfinder
-                </h3>
-                <p class="box-text">
-                    Pathfinder is a Java application designed to help users find the shortest path between multiple cities.
-                    It utilizes Dijkstra's algorithm to guarantee the most efficient route is always calculated.
-                    The user interface is built with JavaFX and developed within the VS Code IDE, ensuring a modern and responsive experience.
-                </p>
-                <div class="pathfinder-container">
-                    <div class="loading-symbol"></div>
-                    <video class="pathfinder-video" autoplay muted playsinline loop>
-                        <source src="Cities.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a class="link-text" href="https://github.com/Adam1416k/Cities_java" target="_blank">
-                    <b>Link to Code</b>
-                </a>
-            </div>
-                   
-            <div class="box">                
-                <h3 class="header3-text">
-                    Local File Search Engine
-                </h3>
-                <p class="box-text">
-                    This project is a straightforward search engine designed to locate the largest file within a specific folder on the local hard drive.
-                    When the user initiates a search, the webpage scans through all files within the selected folder and its subfolders, identifying and displaying the largest file along with its detailed information.
-                    The application is primarily built using PHP and JavaScript, ensuring efficient file processing and a responsive user experience.
-                </p>
-                <div class="local-container">
-                    <div class="loading-symbol"></div>
-                    <video class="local-video" autoplay muted playsinline loop>
-                        <source src="Sökmotor_local.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a class="link-text" href="https://github.com/Adam1416k/S-kmotor" target="_blank">
-                    <b>Link to Code</b>
-                </a>
-            </div>
-               
-            <div class="box">
-                <h3 class="header3-text">
-                    Internet Search Engine
-                </h3>
-                <p class="box-text">
-                    This project is a straightforward web scraper designed to extract information from websites.
-                    The backend is primarily built using PHP and JavaScript. 
-                    The webpage allows users to input a website link and specify a word or phrase they want to search for. 
-                    If the text is found, the webpage displays the relevant sections or paragraphs where the text appears.
-                    This tool provides an efficient way to locate specific information within web content.
-                </p>
-                <div class="scraper-container">
-                    <div class="loading-symbol"></div>
-                    <video class="scraper-video" autoplay muted playsinline loop>
-                        <source src="Web_skrapare.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a class="link-text" href="https://github.com/Adam1416k/Web_skrapare" target="_blank">
-                    <b>Link to Code</b>
-                </a>
-            </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="box">
-                <h3 class="header3-text">
-                    User Registration
-                </h3>
-                <p class="box-text">
-                    This project is a straightforward website designed to manage user registrations.
-                    The backend is primarily built with Python, complemented by some JavaScript for interactive features. 
-                    The website allows users to enter their name, email, and password to create an account. 
-                    Upon registration, the user's information is securely stored in a simple database.
-                    To ensure a smooth user experience, the website checks if the user is already registered before completing the registration process, preventing duplicate accounts.
-                </p>
-                <div class="reg-container">
-                    <div class="loading-symbol"></div>
-                    <video class="reg-video" autoplay muted playsinline loop>
-                        <source src="User_reg.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <a class="link-text" href="https://github.com/Adam1416k/User_registration" target="_blank">
-                    <b>Link to Code</b>
-                </a>
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience & Education</h2>
+      <div class="grid grid-2">
+        <div class="panel">
+          <h3 style="margin:.2rem 0 .6rem">Experience</h3>
+          <div class="timeline">
+            <div class="t">
+              <h3>Client Software Support Associate</h3>
+              <div class="meta">Relesys, Stockholm — 2023–Present</div>
+              <p class="small">Apply technical knowledge to troubleshoot and resolve complex issues. Collaborate with QA and integrations to drive product quality and great customer outcomes.</p>
             </div>
+            <div class="t">
+              <h3>Customer‑facing roles</h3>
+              <div class="meta">Hospitality — Previous</div>
+              <p class="small">Experience as a bartender and in customer service, honing communication and problem‑solving skills in fast‑paced environments.</p>
+            </div>
+          </div>
         </div>
-        <div class="footer">
-            <h3 class="header3-text">
-                Contact
-            </h3>
-            <p class="footer-text">
-                Email: <a class="link-text" href="mailto:adam.magnus.astrom@gmail.com">adam.magnus.astrom@gmail.com</a>
-                <br>
-                LinkedIn: <a class="link-text" href="https://www.linkedin.com/in/adam-%C3%A5str%C3%B6m-105a28246/" target="_blank"> Adam Åström </a>
-                <br>
-                Phone: 079 322 38 30 
-            </p>
+        <div class="panel">
+          <h3 style="margin:.2rem 0 .6rem">Education</h3>
+          <div class="timeline">
+            <div class="t">
+              <h3>KTH Royal Institute of Technology — M.Sc. Software Engineering of Distributed Systems</h3>
+              <div class="meta">2024–Present</div>
+              <p class="small">Scalable, reliable system design across modern cloud and distributed platforms.</p>
+            </div>
+            <div class="t">
+              <h3>Stockholm University — B.Sc. Digital Media / Computer & Systems Sciences</h3>
+              <div class="meta">2021-2024</div>
+              <p class="small">Strong grounding in software development and systems thinking.</p>
+            </div>
+          </div>
         </div>
-    </body>
-    <script src="script.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="panel">
+        <div class="grid grid-3">
+          <div>
+            <h3>Top Skills</h3>
+            <div class="chips">
+              <span class="chip">Customer Experience</span>
+              <span class="chip">Distributed Systems</span>
+              <span class="chip">Software Development</span>
+              <span class="chip">Software Testing</span>
+              <span class="chip">Machine Learning</span>
+            </div>
+          </div>
+          <div>
+            <h3>Languages</h3>
+            <div class="chips">
+              <span class="chip">Java</span>
+              <span class="chip">Python</span>
+              <span class="chip">JavaScript / TypeScript</span>
+              <span class="chip">SQL</span>
+              <span class="chip">Bash / Shell</span>
+            </div>
+          </div>
+          <div>
+            <h3>Tools & Platforms</h3>
+            <div class="chips">
+              <span class="chip">Git & GitHub</span>
+              <span class="chip">Jira</span>
+              <span class="chip">Confluence</span>
+              <span class="chip">Azure</span>
+              <span class="chip">Visual Studio Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+  <div class="container">
+    <h2 class="section-title">Project Experience</h2>
+    <div class="grid grid-2">
+      
+      <div class="panel">
+        <h3>Web Scraping & Data Automation</h3>
+        <p>
+          Developed multiple web scrapers for platforms such as Foodora, Wolt, and Uber Eats to
+          collect and process live deal data. Implemented APIs, automated data pipelines, and JSON
+          outputs that integrate seamlessly with frontend applications. Focus on bypassing detection,
+          managing sessions, and optimizing for efficiency.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Backend Systems & Java Solutions</h3>
+        <p>
+          Built complex backend solutions in Java, including a <strong>Pathfinder project</strong> and
+          distributed systems lab assignments. Experience with designing algorithms, handling
+          concurrency, and delivering scalable backend services with a focus on performance and reliability.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Distributed Systems & HPC</h3>
+        <p>
+          Worked on academic and personal projects exploring <strong>fault tolerance</strong>,
+          <strong>replication</strong>, and <strong>performance optimization</strong> in distributed and
+          high-performance computing environments. Hands-on experience with MPI, OpenMP, GPU offloading,
+          and parallelization strategies.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Applications & Frontend Development</h3>
+        <p>
+          Designed and developed web and mobile-first applications with <strong>React</strong> and
+          <strong>Tailwind CSS</strong>. Examples include a deal aggregator site and an AI-driven
+          workout generator app. Emphasis on user-centric design, responsiveness, and maintainability.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <section id="contact">
+    <div class="container grid grid-2">
+      <div class="panel">
+        <h2 class="section-title">Contact</h2>
+        <p class="small">Curious to reach out or see my GitHub repositories?</p>
+        <div class="flex" style="flex-wrap:wrap">
+          <a class="btn" href="mailto:adam.magnus.astrom@gmail.com">Email me</a>
+          <a class="btn" href="https://github.com/Adam1416k" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/adam-%C3%A5str%C3%B6m-105a28246/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="panel">
+        <h2 class="section-title">About the website</h2>
+        <p class="small">This site is static and deploys via GitHub Pages. It is built and managed by me and all content you find here is my own.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container flex" style="justify-content:space-between; align-items:center">
+      <span>© <span id="y"></span> Adam Åström</span>
+      <span>Built with semantic HTML + CSS</span>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
 </html>
