@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adam Åström — AI Engineer</title>
+  <meta name="description" content="Adam Åström — AI engineer in Stockholm working on applied AI, backend engineering and distributed systems. MSc from KTH. Software developer at Bloomy Ideas and founder of IntelliCite." />
+  <meta name="author" content="Adam Åström" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Adam Åström — AI Engineer" />
+  <meta property="og:description" content="AI engineer in Stockholm working on applied AI, backend engineering and distributed systems. MSc from KTH. Currently at Bloomy Ideas; founder of IntelliCite." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://applicationsportfolio.com" />
+  <meta name="theme-color" content="#fcfbf9" />
+  <style>
+    :root{
+      --paper:#fcfbf9;
+      --ink:#15171c;
+      --body:#3d434d;
+      --muted:#747983;
+      --line:#e3e0d9;
+      --line-soft:#eeece7;
+      --accent:#96661a;
+      --accent-soft:#f7f2e7;
+      --maxw:1020px;
+    }
+
+    *{ box-sizing:border-box }
+    html{ -webkit-text-size-adjust:100% }
+
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--body);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      font-size:1rem;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{ color:var(--accent); text-decoration:none }
+    a:hover{ text-decoration:underline; text-underline-offset:2px }
+    p{ margin:0 }
+
+    .sheet{
+      max-width:var(--maxw);
+      margin-inline:auto;
+      padding:3.25rem 1.5rem 3rem;
+    }
+
+    /* MASTHEAD */
+    .masthead{
+      padding-bottom:1.4rem;
+      border-bottom:1px solid var(--line);
+    }
+
+    .masthead h1{
+      margin:0;
+      font-size:clamp(1.85rem, 4vw, 2.4rem);
+      line-height:1.1;
+      letter-spacing:-.025em;
+      font-weight:700;
+      color:var(--ink);
+    }
+
+    .role{
+      margin:.35rem 0 0;
+      font-size:1.02rem;
+      font-weight:600;
+      color:var(--ink);
+    }
+
+    .where{
+      margin:.15rem 0 0;
+      font-size:.9rem;
+      color:var(--muted);
+    }
+
+    .contact-row{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:.4rem .9rem;
+      margin-top:.9rem;
+      font-size:.9rem;
+    }
+
+    .contact-row a{ font-weight:500 }
+
+    .contact-row .sep{
+      color:#cbc7bf;
+      user-select:none;
+    }
+
+    /* LAYOUT */
+    .layout{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:2.5rem;
+      padding-top:1.9rem;
+    }
+
+    @media (min-width:900px){
+      .layout{
+        grid-template-columns:minmax(0,1fr) 292px;
+        gap:3rem;
+        align-items:start;
+      }
+      .side{
+        border-left:1px solid var(--line);
+        padding-left:2.5rem;
+      }
+    }
+
+    .block{ margin-bottom:2.1rem }
+    .block:last-child{ margin-bottom:0 }
+
+    .sec-title{
+      margin:0 0 1rem;
+      padding-bottom:.45rem;
+      border-bottom:1px solid var(--line);
+      font-size:.72rem;
+      font-weight:700;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .summary{
+      font-size:1.02rem;
+      line-height:1.62;
+      color:var(--body);
+      max-width:62ch;
+    }
+
+    .summary strong{ color:var(--ink); font-weight:600 }
+
+    /* ENTRIES */
+    .entry{
+      padding-bottom:1.05rem;
+      margin-bottom:1.05rem;
+      border-bottom:1px solid var(--line-soft);
+    }
+
+    .entry:last-child{
+      padding-bottom:0;
+      margin-bottom:0;
+      border-bottom:0;
+    }
+
+    .entry-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:.5rem 1rem;
+      flex-wrap:wrap;
+    }
+
+    .entry h3{
+      margin:0;
+      font-size:1rem;
+      font-weight:600;
+      color:var(--ink);
+      line-height:1.35;
+    }
+
+    .when{
+      font-size:.82rem;
+      color:var(--muted);
+      font-variant-numeric:tabular-nums;
+      white-space:nowrap;
+    }
+
+    .org{
+      margin:.1rem 0 .35rem;
+      font-size:.89rem;
+      color:var(--muted);
+    }
+
+    .entry p{
+      font-size:.94rem;
+      max-width:68ch;
+    }
+
+    .now{
+      display:inline-block;
+      margin-left:.4rem;
+      padding:.05rem .4rem;
+      border:1px solid rgba(150,102,26,.25);
+      border-radius:4px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-size:.66rem;
+      font-weight:700;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      vertical-align:.1em;
+    }
+
+    .flag{
+      border-left:2px solid var(--accent);
+      padding-left:1.05rem;
+    }
+
+    .flag p + p{ margin-top:.45rem }
+
+    .earlier{
+      margin-top:1.05rem;
+      padding-top:.85rem;
+      border-top:1px solid var(--line-soft);
+      font-size:.88rem;
+      color:var(--muted);
+    }
+
+    /* SIDEBAR */
+    .side .sec-title{ margin-bottom:.85rem }
+
+    .kv{ margin:0 }
+
+    .kv dt{
+      font-size:.73rem;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--ink);
+    }
+
+    .kv dd{
+      margin:.1rem 0 .8rem;
+      font-size:.89rem;
+      line-height:1.55;
+    }
+
+    .kv dd:last-of-type{ margin-bottom:0 }
+
+    .side .entry{
+      padding-bottom:.9rem;
+      margin-bottom:.9rem;
+    }
+
+    .side .entry h3{ font-size:.95rem }
+    .side .entry p{ font-size:.88rem }
+
+    /* FOOTER */
+    footer{
+      max-width:var(--maxw);
+      margin-inline:auto;
+      padding:1.4rem 1.5rem 2.5rem;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:.4rem 1rem;
+      font-size:.84rem;
+      color:var(--muted);
+    }
+
+    @media (max-width:560px){
+      .sheet{ padding:2.25rem 1.15rem 2rem }
+      .entry-top{ gap:.15rem }
+      .when{ font-size:.8rem }
+    }
+
+    @media print{
+      body{ background:#fff; font-size:10pt; line-height:1.45 }
+      .sheet{ padding:0; max-width:none }
+      .layout{ grid-template-columns:minmax(0,1fr) 230px; gap:1.6rem; padding-top:1rem }
+      .side{ border-left:1px solid #ddd; padding-left:1.4rem }
+      a{ color:inherit; text-decoration:none }
+      .entry, .block{ break-inside:avoid }
+      footer{ display:none }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Adam Åström",
+    "url": "https://applicationsportfolio.com",
+    "jobTitle": "AI Engineer",
+    "address": {"@type":"PostalAddress","addressLocality":"Stockholm","addressCountry":"SE"},
+    "sameAs": [
+      "https://www.linkedin.com/in/adam-%C3%A5str%C3%B6m-105a28246/",
+      "https://intellicite.io"
+    ],
+    "worksFor": [
+      {"@type":"Organization","name":"Bloomy Ideas"},
+      {"@type":"Organization","name":"Now Interact"}
+    ],
+    "alumniOf": [
+      {"@type":"CollegeOrUniversity","name":"KTH Royal Institute of Technology","sameAs":"https://www.kth.se"},
+      {"@type":"CollegeOrUniversity","name":"Stockholm University","sameAs":"https://www.su.se"}
+    ],
+    "knowsAbout": [
+      "Applied AI",
+      "Backend Engineering",
+      "Distributed Systems",
+      "Answer Engine Optimization",
+      "Machine Learning",
+      "Software Development",
+      "API Design",
+      "Technical Communication"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <main class="sheet">
+
+    <header class="masthead">
+      <h1>Adam Åström</h1>
+      <p class="role">AI Engineer &mdash; Backend &amp; Distributed Systems</p>
+      <p class="where">Stockholm, Sweden</p>
+      <div class="contact-row">
+        <a href="mailto:adam.magnus.astrom@gmail.com">adam.magnus.astrom@gmail.com</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="tel:+46793223830">+46 79 322 38 30</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="https://www.linkedin.com/in/adam-%C3%A5str%C3%B6m-105a28246/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="https://intellicite.io" target="_blank" rel="noopener">intellicite.io</a>
+      </div>
+    </header>
+
+    <div class="layout">
+
+      <div class="main">
+
+        <section class="block">
+          <p class="summary">
+            I build AI systems end to end: the backend, the infrastructure they run on, and the product thinking that makes them useful. Right now I am a software developer at <strong>Bloomy Ideas</strong> and an AI engineer consultant at <strong>Now Interact</strong>. I also founded <strong>IntelliCite</strong>, a platform that measures how businesses show up in AI-generated answers. MSc in Software Engineering of Distributed Systems from KTH.
+          </p>
+        </section>
+
+        <section class="block">
+          <h2 class="sec-title">Experience</h2>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3>Software Developer<span class="now">Current</span></h3>
+              <span class="when">Mar 2026 &ndash; Present</span>
+            </div>
+            <p class="org">Bloomy Ideas &middot; Stockholm &middot; On-site</p>
+            <p>I lead and build the SaaS projects we run. Joined full-time in August 2026 after six months as a consultant on Brandbra.in, a client platform.</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3>AI Engineer Consultant<span class="now">Current</span></h3>
+              <span class="when">Jul 2026 &ndash; Present</span>
+            </div>
+            <p class="org">Now Interact &middot; Stockholm &middot; Freelance, hybrid</p>
+            <p>I support the development and implementation of an AI-driven B2B tool, alongside my role at Bloomy Ideas.</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3>Founder &amp; Builder</h3>
+              <span class="when">Dec 2025 &ndash; Present</span>
+            </div>
+            <p class="org">IntelliCite &middot; Stockholm &middot; Self-employed</p>
+            <p>Built the platform on my own: an Answer Engine Optimization tool that measures how businesses are represented in AI-generated answers and recommends what to change.</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3>Client Software Support</h3>
+              <span class="when">Jan 2024 &ndash; Feb 2026</span>
+            </div>
+            <p class="org">Relesys &middot; Stockholm &middot; On-site</p>
+            <p>Supported enterprise clients: troubleshooting software issues, explaining technical detail in plain language, and working with engineering on escalations. Started as an implementation intern, onboarding new clients onto the platform.</p>
+          </div>
+
+          <p class="earlier">Earlier: hospitality roles at Scandic Hotels, 2021&ndash;2024, alongside my studies.</p>
+        </section>
+
+        <section class="block">
+          <h2 class="sec-title">Projects</h2>
+
+          <div class="entry flag">
+            <div class="entry-top">
+              <h3>IntelliCite &mdash; Answer Engine Optimization platform</h3>
+              <span class="when">Dec 2025 &ndash; Present</span>
+            </div>
+            <p class="org">Founder and sole builder &middot; <a href="https://intellicite.io" target="_blank" rel="noopener">intellicite.io</a></p>
+            <p>More and more people search with tools like ChatGPT, but many companies are never mentioned in the answers. IntelliCite analyses how AI describes a business, finds the gaps and recommends what to fix.</p>
+            <p>I designed and built the full pipeline: prompt testing modelled on real search behaviour, website and content evaluation, AI perception and citation analysis, recommendation generation, and monitoring across large prompt sets. It is also the subject of my master&rsquo;s thesis at KTH.</p>
+            <!-- TODO (Adam): add the tech stack here (languages, model providers, database, hosting). Left out on purpose rather than guessed. -->
+          </div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3>Brandbra.in</h3>
+              <span class="when">Mar 2026 &ndash; Aug 2026</span>
+            </div>
+            <p class="org">Independent consultant, through Bloomy Ideas</p>
+            <p>Contributed to a client platform for six months, delivering technical solutions with the Bloomy Ideas team and helping drive product improvements.</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3>Data collection and automation pipelines</h3>
+              <span class="when">Personal</span>
+            </div>
+            <p>Pipelines that collected live deal data from Foodora, Wolt and Uber Eats and served it as structured APIs and JSON feeds. Most of the work was session handling and keeping them reliable enough to run continuously.</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3>Distributed systems and high-performance computing</h3>
+              <span class="when">KTH &amp; personal</span>
+            </div>
+            <p>Work on replication, fault tolerance and performance under load, with MPI, OpenMP and GPU offloading, plus a fair amount of backend Java covering concurrency and service design.</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3>Web applications</h3>
+              <span class="when">Personal</span>
+            </div>
+            <p>React and Tailwind apps, including a deal aggregation site and an AI-driven workout generator.</p>
+          </div>
+        </section>
+
+      </div>
+
+      <aside class="side">
+
+        <section class="block">
+          <h2 class="sec-title">Skills</h2>
+          <dl class="kv">
+            <dt>AI &amp; machine learning</dt>
+            <dd>Applied AI, LLM-based systems, prompt engineering, model evaluation, AI visibility analysis, machine learning</dd>
+            <dt>Backend &amp; distributed systems</dt>
+            <dd>Backend engineering, distributed systems, API design, data pipelines, cloud services, concurrency</dd>
+            <dt>Languages</dt>
+            <dd>Java, Python, JavaScript / TypeScript, SQL, Bash</dd>
+            <dt>Frameworks &amp; platforms</dt>
+            <dd>React, Tailwind CSS, Azure, Git &amp; GitHub, IntelliJ IDEA, VS Code</dd>
+            <dt>Ways of working</dt>
+            <dd>Software testing, Jira, Confluence, HubSpot, Replit</dd>
+            <dt>Product &amp; collaboration</dt>
+            <dd>Product thinking, technical communication, client-facing consulting, problem solving</dd>
+          </dl>
+        </section>
+
+        <section class="block">
+          <h2 class="sec-title">Education</h2>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3>MSc, Software Engineering of Distributed Systems</h3>
+            </div>
+            <p class="org">KTH Royal Institute of Technology &middot; Aug 2024 &ndash; Jun 2026</p>
+            <p>Distributed software running across devices, from cloud servers to phones, specialising in software development and data analysis. Thesis: Answer Engine Optimization, carried out through the design and evaluation of IntelliCite.
+              <!-- TODO (Adam): add the exact thesis title, and a DiVA link if it is published. -->
+            </p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-top">
+              <h3>BSc, Computer and Systems Sciences</h3>
+            </div>
+            <p class="org">Stockholm University &middot; Aug 2021 &ndash; Jun 2024 &middot; 180 ECTS</p>
+            <p>Digital Media programme at DSV: web development, programming and systems design.</p>
+          </div>
+        </section>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>&copy; <span id="y"></span> Adam Åström &middot; <a href="mailto:adam.magnus.astrom@gmail.com">adam.magnus.astrom@gmail.com</a></span>
+    <span>Static page, built and maintained by me in plain HTML and CSS.</span>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
